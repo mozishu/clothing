@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.amy.clothing.dao.GoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.amy.clothing.pojo.Goods" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="colors" property="colors" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="cloth" property="cloth" jdbcType="VARCHAR" />
+    <result column="clothNo" property="clothno" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="wages" property="wages" jdbcType="DECIMAL" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="selldate" property="selldate" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, colors, size, cloth, clothNo, price, wages, url, selldate, deleted, createtime,
+    updatetime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.amy.clothing.pojo.Goods" >
+    insert into goods (id, name, colors,
+      size, cloth, clothNo, 
+      price, wages, url, 
+      selldate, deleted, createtime, 
+      updatetime)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{colors,jdbcType=VARCHAR}, 
+      #{size,jdbcType=VARCHAR}, #{cloth,jdbcType=VARCHAR}, #{clothno,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{wages,jdbcType=DECIMAL}, #{url,jdbcType=VARCHAR}, 
+      #{selldate,jdbcType=TIMESTAMP}, #{deleted,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.amy.clothing.pojo.Goods" >
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="colors != null" >
+        colors,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="cloth != null" >
+        cloth,
+      </if>
+      <if test="clothno != null" >
+        clothNo,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="wages != null" >
+        wages,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="selldate != null" >
+        selldate,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="colors != null" >
+        #{colors,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="cloth != null" >
+        #{cloth,jdbcType=VARCHAR},
+      </if>
+      <if test="clothno != null" >
+        #{clothno,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="wages != null" >
+        #{wages,jdbcType=DECIMAL},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="selldate != null" >
+        #{selldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.amy.clothing.pojo.Goods" >
+    update goods
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="colors != null" >
+        colors = #{colors,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="cloth != null" >
+        cloth = #{cloth,jdbcType=VARCHAR},
+      </if>
+      <if test="clothno != null" >
+        clothNo = #{clothno,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="wages != null" >
+        wages = #{wages,jdbcType=DECIMAL},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="selldate != null" >
+        selldate = #{selldate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.amy.clothing.pojo.Goods" >
+    update goods
+    set name = #{name,jdbcType=VARCHAR},
+      colors = #{colors,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      cloth = #{cloth,jdbcType=VARCHAR},
+      clothNo = #{clothno,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      wages = #{wages,jdbcType=DECIMAL},
+      url = #{url,jdbcType=VARCHAR},
+      selldate = #{selldate,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
