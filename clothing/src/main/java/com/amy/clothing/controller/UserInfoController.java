@@ -1,6 +1,5 @@
 package com.amy.clothing.controller;
 
-import com.amy.clothing.dao.UserInfoMapper;
 import com.amy.clothing.pojo.UserInfo;
 import com.amy.clothing.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +26,10 @@ public class UserInfoController {
         return userInfoService.selectByPrimaryKey(id);
     }
 
+    @RequestMapping(value ="/getAllUserInfo",method = RequestMethod.GET)
+    @ResponseBody
+    public List<UserInfo> getAllUserInfo(){
+        return userInfoService.getAllUserInfo();
+    }
 
 }

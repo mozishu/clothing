@@ -2,6 +2,8 @@ package com.amy.clothing.dao;
 
 import com.amy.clothing.pojo.UserInfo;
 
+import java.util.List;
+
 public interface UserInfoMapper {
 
     int deleteByPrimaryKey(Integer id);
@@ -16,5 +18,5 @@ public interface UserInfoMapper {
 
     int updateByPrimaryKey(UserInfo record);
 
-
+    List<UserInfo> getAllUserInfo();
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class UserInfoServiceImpl implements UserInfoService {
@@ -40,5 +42,10 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public int updateByPrimaryKey(UserInfo record) {
         return userInfoMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<UserInfo> getAllUserInfo() {
+        return userInfoMapper.getAllUserInfo();
     }
 }

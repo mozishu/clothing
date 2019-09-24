@@ -20,6 +20,13 @@
     id, name, mobile, sex, birthday, idcard, address, url, username, password, deleted,
     createtime, updatetime
   </sql>
+  <!--获取所有用户信息-->
+  <select id="getAllUserInfo" resultType="userInfo">
+    select
+    <include refid="Base_Column_List" />
+    from userinfo
+  </select>
+  <!--根据id获取用户信息-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />
